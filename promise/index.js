@@ -1,26 +1,14 @@
 const myPromise = new Promise((resolve, reject) => {
-    resolve((value) => {
-        return value*2
-    })
-    reject((value) => {
-        return value*3
-    })
+    resolve(1)
+    reject(2)
 })
 
-myPromise.then((resolveFunction) => {
-    console.log(resolveFunction(3))
+myPromise.then((a) => {
+    console.log(a)
+}).then(() => {
+    console.log()
+}).catch((err) => {
+    console.error(err)
+}).finally(() => {
+    console.log('acabou')
 })
-
-myPromise.finally(() => {
-    console.log('finally')
-})
-
-async function ConsoleHello(){
-    try{
-        let res = await myPromise
-        console.log(res(3))
-    }catch(err){
-        console.error(err)
-    }
-}
-ConsoleHello()
